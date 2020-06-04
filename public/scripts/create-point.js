@@ -16,6 +16,7 @@ function populateUFs(){
 
 populateUFs()
 
+/*Povoando as cidades*/
 function getCities(event){
   const citySelect = document.querySelector("select[name=city]")
   const stateInput = document.querySelector("input[name=state]")
