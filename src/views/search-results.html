@@ -15,60 +15,42 @@
 
   <main>
 
-    <h4>
-      <strong>3 pontos</strong>
-      encontrados
-    </h4>
+    {% if total > 0 %}
 
-    <div class="cards">
+      <h4>
+        <strong>{{total}}
+          pontos</strong>
+        encontrados
+      </h4>
 
-      <div class="card">
+      <div class="cards">
 
-        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=874&q=80" alt="Colectoria">
-        <h1>Colectoria</h1>
-        <h3>Resíduos Eletrônicos, Lâmpadas</h3>
-        <p>
-          Rio do Sul, Santa Catarina
-        <br>
-        Guilherme Gemballa, Jardim América
-      <br>
-      Nº 260
-    </p>
+        {% for place in places %}
+          <div class="card">
 
-  </div>
+            <img src="{{place.image}}" alt="Colectoria">
+            <h1>{{place.name}}</h1>
+            <h3>{{place.items}}</h3>
+            <p>
+              {{place.city}}
+              {{place.state}}
+              <br>
+              {{place.address}}
+              <br>
+              {{place.address2}}
+            </p>
 
-  <div class="card">
+          </div>
+        {% endfor %}
 
-    <img src="https://images.unsplash.com/photo-1567393528677-d6adae7d4a0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Papersider">
-    <h1>Papersider</h1>
-    <h3>Papéis e Papelão</h3>
-    <p>
-      Rio do Sul, Santa Catarina
-    <br>
-    Guilherme Gemballa, Jardim América
-  <br>
-  Nº 260
-</p>
+      </div>
 
-</div>
+    {%else%}
 
-<div class="card">
+    <h4> <strong>Nenhum</strong> local foi encontrado</h4>
 
-<img src="https://images.unsplash.com/photo-1536939459926-301728717817?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="E-Bottles">
-<h1>E-Bottles</h1>
-<h3>Plásticos</h3>
-<p>
-  Rio do Sul, Santa Catarina
-<br>
-Guilherme Gemballa, Jardim América
-<br>
-Nº 320
-</p>
+    {% endif %}
 
-</div>
-
-</div>
-
-</main>
+  </main>
 
 {% endblock content %}
